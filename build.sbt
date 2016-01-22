@@ -1,10 +1,10 @@
 onLoad in Global := ((s: State) => { "updateIdea" :: s}) compose (onLoad in Global).value
 
 lazy val sbtIdeaExample: Project =
-  Project("sbt-idea-example", file("."))
+  Project("gridzzly-idea-plugin", file("."))
     .enablePlugins(SbtIdeaPlugin)
     .settings(
-      name := "sbt-idea-example",
+      name := "gridzzly-idea-plugin",
       version := "1.0",
       scalaVersion := "2.11.7",
       assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false),
@@ -31,12 +31,12 @@ lazy val packagePlugin = TaskKey[File]("package-plugin", "Create plugin's zip fi
 packagePlugin in sbtIdeaExample <<= (assembly in sbtIdeaExample,
   target in sbtIdeaExample,
   ivyPaths) map { (ideaJar, target, paths) =>
-  val pluginName = "sbt-idea-example"
+  val pluginName = "gridzzly-idea-plugin"
   val ivyLocal = paths.ivyHome.getOrElse(file(System.getProperty("user.home")) / ".ivy2") / "local"
   val sources = Seq(
     ideaJar -> s"$pluginName/lib/${ideaJar.getName}"
   )
-  val out = target / s"$pluginName-plugin.zip"
+  val out = target / s"$pluginName.zip"
   IO.zip(sources, out)
   out
 }
