@@ -1,5 +1,5 @@
 <idea-plugin version="2">
-    <id>org.jetbrains.gridzzly-idea-plugin</id>
+    <id>org.javeo.gridzzly-idea-plugin</id>
     <name>Gridzzly idea plugin</name>
     <version>1.0</version>
     <vendor url="http://www.javeo.eu">Javeo</vendor>
@@ -19,7 +19,7 @@
     </project-components>
 
     <extensions defaultExtensionNs="org.intellij.scala">
-        <syntheticMemberInjector implementation="org.jetbrains.example.injector.TestPluginInjector"/>
+        <syntheticMemberInjector implementation="org.jetbrains.example.injector.Injector"/>
     </extensions>
 
     <extensions defaultExtensionNs="com.intellij">
