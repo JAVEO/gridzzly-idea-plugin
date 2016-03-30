@@ -17,7 +17,7 @@ class Injector extends SyntheticMembersInjector {
         Seq(
           s"def run(conditions: GridConditions)(implicit dbConnection: DBConnection): (_root_.scala.concurrent.Future[Seq[$secondType]], _root_.scala.concurrent.Future[Int]) = ???",
           s"def run(conditions: GridConditions, initialFilter: (${firstType}) => Rep[Boolean])(implicit dbConnection: DBConnection): (_root_.scala.concurrent.Future[Seq[$secondType]], _root_.scala.concurrent.Future[Int]) = ???",
-          s"def colsForFrontend: ColForFrontend = ???"
+          s"def colsForFrontend: List[ColForFrontend] = ???"
         )
       case _ => Seq.empty
     }
